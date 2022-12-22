@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cursor"></div>
+  <center>
+  <div class="cube">
+    <div class="top"></div>
+    <div>
+      <span  style="--i:0;"></span>
+      <span  style="--i:1;"></span>
+      <span  style="--i:2;"></span>
+      <span  style="--i:3;"></span>
+    </div>
+  </div></center>
+
+
+
+  <script>
+    const curso= document.querySelector(".cursor");
+    var timeout;
+
+    document.addEventListener("mousemove ",(event)=> {
+      let x = event.pageX; 
+      let y = event.pageY; 
+      cursor.style.top = y + 'px';
+      cursor.style.left = x + 'px';
+      cursor.style.display = 'block';
+
+
+      function mouse_stop(){
+        cursor.style.display ='none';
+      }
+
+      clearTimeout(timeout);
+      timeout=setTimeout(mouse_stop, 1000)
+
+ 
+    });
+  </script>
+</body>
+</html>

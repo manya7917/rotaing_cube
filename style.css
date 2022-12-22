@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    display: felx;
+    justify-content: center;
+    cursor: none;
+    align-items: center;
+    min-height: 100vh;
+    background-color: black;
+  
+  }
+  
+  .cube{
+    top: 120px;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg);
+    animation: animate 4s linear infinite;  
+  }
+  
+  @keyframes animate{
+    0%{
+      transform: rotateX(-30deg) rotateY(0deg);
+    }
+  
+    100%{
+      transform: rotateX(-30deg) rotateY(360deg);
+    }
+  }
+  
+  .cube div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+  
+  .cube div span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#151515, #D2042D);  /* translate, transform, transform style*/
+    transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
+  }
+  
+  .top{
+    position: absolute;
+    top: 150px;
+    
+    /* left: 0; */
+    width: 300px;
+    height: 300px;
+    background-color: #222;
+    transform: rotateX(90deg) translateZ(150px);
+  
+  }
+  
+  .top::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background-color: #D2042D;
+    transform: translateZ(-410px);
+    filter: blur(20px);
+    box-shadow: 0 0 120px rgba(255, 0, 0, 0.2), 
+                0 0 200px rgba(255, 0, 0, 0.4),
+                0 0 300px rgba(255, 0, 0, 0.6),
+                0 0 400px rgba(255, 0, 0, 0.8),
+                0 0 500px rgba(255, 0, 0, 1) ;
+  }
+  
+  .cursor{
+    z-index: 999;
+    position: fixed;
+    background-color: #2696E8;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 20px#2696E8, 0 0 60px#2696E8, 0 0 100px#2696E8;
+    transform: translate(-50%,-50%);
+    animation: colors 5s infinite;
+    /* display: none ; */
+  }
+  
+  @keyframes colors{
+    0%{
+      filter: hue-rotate(0deg);
+    }
+    100%{
+      filter: hue-rotate(360deg);
+    }
+  }
+  
+  .cursor:before{
+    content: '';
+    /* position: absolute; */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #2696E8;
+    opacity: 0.2;
+    transform: translate(-30%,-30%);
+  }
